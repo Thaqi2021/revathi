@@ -1,0 +1,64 @@
+<!-- <p>login works!</p>
+<div style="background-color: #092756;">
+  <div class="login">
+      <h1>Login</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <input type="text" placeholder="Username" name="userName" formControlName="name" />
+          <input type="password" placeholder="Password" name="password" formControlName="password" />
+          <button type="submit" class="btn btn-primary btn-block btn-large">Sign In</button>
+      </form>
+  </div>
+</div> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('../../assets/login.jpg');">
+    <div class="wrap-login100 p-t-30 p-b-50">
+      <span class="login100-form-title p-b-41">
+        User Login
+      </span>
+      <form  [formGroup]="loginForm" (ngSubmit)="submit()" class="login100-form  validate-form p-b-33 p-t-5">
+        <!-- <div class="row">
+            <div class="wrap-input100 validate-input" >
+          <div class="col-md-2" style="padding-top: 20px;">
+            <span style="padding-left: 25px;" class="glyphicon glyphicon-user"></span></div>
+          <div class="col-md-10">
+            <input class="form-control inpu125" type="text" formControlName="emailid" placeholder="Enter email id">
+          </div>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="wrap-input100 validate-input" >
+        <div class="col-md-2" style="padding-top: 20px;">
+          <span style="padding-left: 25px;" class="glyphicon glyphicon-user"></span></div>
+        <div class="col-md-10"><input class="form-control inpu125" type="email"formControlName="email" placeholder="Enter valid Mail id">
+        </div>
+        </div>
+      </div>
+        <div class="row">
+            <div class="wrap-input100 validate-input" >
+          <div class="col-md-2" style="padding-top: 20px;">
+            <span style="padding-left: 25px;" class="glyphicon glyphicon-lock"></span></div>
+          <div class="col-md-10"><input class="form-control inpu125" type="password"formControlName="password" placeholder="Password">
+          </div>
+          </div>
+        </div>
+        <!-- <div class="wrap-input100 validate-input" data-validate="Enter username">
+
+          <input class="input100 form-control" type="text" name="username" formControlName="user" placeholder="User name">
+           <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+        </div> -->
+        <!-- <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <input class="input100 form-control" type="password" name="password" formControlName="password" placeholder="Password">
+          <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+        </div> -->
+        <div class="container-login100-form-btn m-t-32">
+          <button  type="submit" class="login100-form-btn">
+            Login
+          </button>
+        </div>
+      </form>
+      <a href="/signUp" style="color:white">Create New Account</a>
+    </div>
+  </div>
+</div>

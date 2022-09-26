@@ -1,0 +1,78 @@
+<p>learn works!</p>
+<h1>{{courseName}}</h1>
+<button (click)="changeName()">Click me</button>
+<div *ngIf="!submitted">
+  <form>
+    <label>User Name</label>
+    <input type="text" #username /><br /><br />
+    <label for="password">Password</label>
+    <input type="password" name="password" #password /><br />
+  </form>
+  <button (click)="onSubmit(username.value, password.value)">Login</button>
+</div>
+<div *ngIf="submitted">
+  <div *ngIf="isAuthenticated; else failureMsg">
+    <h4>Welcome {{ userName }}</h4>
+  </div>
+  <ng-template #failureMsg>
+    <h4>Invalid Login !!! Please try again...</h4>
+  </ng-template>
+  <button type="button" (click)="submitted = false">Back</button>
+</div>
+<ul>
+  <li *ngFor="let course of courses;  let i = index">
+       {{i}} - {{ course.name }} -{{course.id}}
+  </li>
+</ul>
+<div [ngSwitch]="choice">
+  <p *ngSwitchCase="1">First Choice</p>
+  <p *ngSwitchCase="2">Second Choice</p>
+  <p *ngSwitchCase="3">Third Choice</p>
+  <p *ngSwitchCase="2">Second Choice Again</p>
+  <p *ngSwitchDefault>Default Choice</p>
+</div>
+<p> count -{{2+4}} </p>
+<button (click)="nextChoice()">Click me</button>
+<h3>Structural Directive</h3>
+<!-- <p *appRepeat="5">I am being repeated...</p> -->
+<h3>Structural Directive with exportAs property</h3>
+<ng-template appRepeat #rd=repeat #ct=changeText>
+  <p>I am being repeated...</p>
+</ng-template>
+<button (click)="rd.repeatElement(5)">Repeat Element</button>
+<button (click)="ct.changeElementText(5)">Change Text</button>
+<input type="text" [(ngModel)]="name"> <br/>
+<div>Hello , {{ name }}</div>
+<h2>Sorting Products list using custom pipe</h2>
+Sort the list based on
+<select [(ngModel)]="sortoption">
+  <option value="prodName">Product Name</option>
+  <option value="price">Price</option>
+</select>
+<br /><br />
+<table border="1">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let products of productsList | sort: sortoption">
+      <td>{{ products.productName }}</td>
+      <td>{{ products.price }}</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Popular Courses</h2>
+<button (click)="show = true">View Courses list</button><br /><br />
+<div *ngIf="show">
+  <!-- <Learn-CourseList></Learn-CourseList> -->
+  <!-- <button (click)="/courseList">click me</button> -->
+</div>
+<div *ngFor="let product of productsList">
+
+  <p *ngIf="product.bas==1 else other"> {{product.id}} im in cart product</p>
+  <ng-template #other><p >Im not in cart </p></ng-template>
+</div>
+

@@ -1,0 +1,88 @@
+<!-- <h1>home works!</h1>
+<h2>how are you</h2> -->
+<app-navbar></app-navbar>
+<!-- <div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+<div class="row" *ngIf="is ;else without_userId">
+  <div class="column" *ngFor="let product of products">
+
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{product.productName}}</mat-card-title>
+          <mat-card-subtitle>{{product.pdesc}}<br>
+            <h3>Price :{{product.price}}</h3>
+            <!-- <label *ngIf="product.bas>=1 else showall" mat-button
+              (click)="addtocart(product.product_id)">
+              <button mat-mini-fab (click)="addtocart(product.product_id)">
+                <mat-icon>add</mat-icon>
+              </button>
+              <span>{{product.bas}}</span>
+              <button mat-mini-fab (click)="addtocart(product.product_id)">
+                <mat-icon>remove</mat-icon>
+              </button></label> -->
+              <div class="input-group mb-2 "style="width:145px">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text"><mat-icon>add</mat-icon></span>
+                </div>
+                <input type="text" value="{{product.bas}}" disabled>
+                <div class="input-group-append">
+                  <span class="input-group-text" ><mat-icon>remove</mat-icon></span>
+                </div>
+              </div>
+
+
+            <ng-template #showall>
+              <button mat-button (click)="addtocart(product.product_id)">Add to cart</button>
+            </ng-template>
+          </mat-card-subtitle>
+          <img mat-card-md-image src="data:image/png;base64,{{product.myImageObj}}">
+        </mat-card-title-group>
+        <mat-card-content>
+          <p> </p>
+        </mat-card-content>
+      </mat-card>
+
+  </div>
+</div>
+
+<ng-template #without_userId>
+  <div class="row">
+    <div class="column" *ngFor="let product of products">
+
+      <!-- <div *ngFor="let product of products"> -->
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{product.productName}}</mat-card-title>
+          <mat-card-subtitle>{{product.pdesc}}<br>
+            <h3>Price :{{product.price}}</h3>
+            <button mat-button (click)="addtocart(product.product_id)">Add to cart</button>
+          </mat-card-subtitle>
+          <img mat-card-md-image src="data:image/png;base64,{{product.myImageObj}}">
+        </mat-card-title-group>
+        <mat-card-content>
+          <p> </p>
+        </mat-card-content>
+      </mat-card>
+      <!-- </div> -->
+
+    </div>
+  </div>
+</ng-template>
